@@ -11,14 +11,17 @@ var x = 5;
 console.log(y);
 let y = 10;
 ```
-a) A saída será undefined seguido de erro 
+a) A saída será undefined seguido de erro. ***CERTA ✅***
+
+> O primeiro console.log(x) imprime undefined porque x foi hoisted (comportamento do JavaScript em que declarações de variáveis e funções são "elevadas" para o topo do seu escopo antes da execução do código), mas ainda não foi atribuído um valor. Nisso, quando a máquina procura X, encontra uma variável indefinida (sem atribuição). 
+
+>O segundo console.log(y) resulta em um erro porque y está no "temporal dead zone" (o JavaScript fez o hoisting da declaração let y, mas não inicializou a variável; quando o código tenta acessar y antes da linha de atribuição sempre resultará em um erro).
 
 b) A saída será 5 seguido de 10
 
 c) A saída será undefined seguido de undefined
 
 d) A saída será erro em ambas as linhas que utilizam console.log
-
 
 **2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.**
 
@@ -32,7 +35,9 @@ function soma(a, b) {
 console.log(soma(2, 0));
 ```
 
-a) Substituir if (a || b === 0) por if (a === 0 || b === 0)
+a) Substituir if (a || b === 0) por if (a === 0 || b === 0) ***CERTA ✅***
+
+>Pelo contexto, parece que a função quer retornar um erro se pelo menos um dos números for 0. No entanto, o código atual tem um problema porque a condição if (a || b === 0) não faz o que se espera. Isso acontece devido ao comportamento do operador || (OU lógico) e à precedência dos operadores em JavaScript. A condição correta deve verificar explicitamente se a é 0 ou se b é 0. Para isso, devemos usar if (a === 0 || b === 0). Essa condição garante que a função retorne um erro apenas quando um dos números for 0 (antes, testei e vi que o código retornava a soma normalmente mesmo quando a era zero).
 
 b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
 
@@ -67,7 +72,9 @@ console.log(calcularPreco("eletrônico"));
 
 a) O código imprime 1000.
 
-b) O código imprime 200.
+b) O código imprime 200. ***CERTA ✅***
+
+>A saída do código é 200, pois não existe a linha "break" após o primeiro caso o switch. Após definir preco = 1000, o código não tem um break para sair do switch. Isso faz com que a execução continue para o próximo caso ("vestuário"), mesmo que ele não corresponda ao valor de tipo. Para o código estar certo, deveriam ser acrescentadas duas linhas de "break", uma no caso de eletrônico e outra em "preco". Se o break não for usado, a execução continua para os casos seguintes, mesmo que eles não correspondam ao valor da expressão.
 
 c) O código imprime 50.
 
@@ -88,7 +95,9 @@ b) 6
 
 c) 18
 
-d) 24
+d) 24 ***CERTA ✅***
+
+>CONTINUAR A RESPONDER AQUI!!
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -102,7 +111,8 @@ a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
 
 b) ["banana", "abacaxi", "manga"]
 
-c) ["banana", "abacaxi", "manga", "laranja"]
+c) ["banana", "abacaxi", "manga", "laranja"] ***CERTA ✅***
+>CONTINUAR A RESPONDER AQUI!!
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 ______
@@ -146,7 +156,6 @@ class Funcionario extends Pessoa {
   }
 }
 ```
-
 
 I) A classe Funcionario herda de Pessoa e pode acessar os atributos nome e idade diretamente.  
 II) O método `apresentar()` da classe Funcionario sobrepõe o método `apresentar()` da classe Pessoa, mas chama o método da classe pai usando `super`.  
