@@ -17,6 +17,8 @@ a) A saída será undefined seguido de erro. ***CERTA ✅***
 
 >O segundo console.log(y) resulta em um erro porque y está no "temporal dead zone" (o JavaScript fez o hoisting da declaração let y, mas não inicializou a variável; quando o código tenta acessar y antes da linha de atribuição sempre resultará em um erro).
 
+> "Temporal dead zone" (TDZ): O TDZ é o período entre a criação da variável e sua inicialização, onde qualquer tentativa de acesso resulta em um erro.
+
 b) A saída será 5 seguido de 10
 
 c) A saída será undefined seguido de undefined
@@ -37,7 +39,7 @@ console.log(soma(2, 0));
 
 a) Substituir if (a || b === 0) por if (a === 0 || b === 0) ***CERTA ✅***
 
->Pelo contexto, parece que a função quer retornar um erro se pelo menos um dos números for 0. No entanto, o código atual tem um problema porque a condição if (a || b === 0) não faz o que se espera. Isso acontece devido ao comportamento do operador || (OU lógico) e à precedência dos operadores em JavaScript. A condição correta deve verificar explicitamente se a é 0 ou se b é 0. Para isso, devemos usar if (a === 0 || b === 0). Essa condição garante que a função retorne um erro apenas quando um dos números for 0 (antes, testei e vi que o código retornava a soma normalmente mesmo quando a era zero).
+>Pelo contexto, parece que a função quer retornar um erro se pelo menos um dos números for 0. No entanto, o código atual tem um problema porque a condição if (a || b === 0) não faz o que se espera. Isso acontece devido ao comportamento do operador || (OU lógico) e à precedência dos operadores em JavaScript. A condição correta deve verificar explicitamente se a é 0 ou se b é 0. Para isso, devemos usar if (a === 0 || b === 0). Essa condição garante que a função retorne um erro apenas quando um dos números for 0 (antes, testei e vi que o código retornava a soma normalmente mesmo quando a era zero). O operador || tem precedência sobre ===. Isso faz com que a condição seja interpretada como if (a || (b === 0)), o que não verifica se a é igual a 0. A correção if (a === 0 || b === 0) garante que a função retorne um erro se a ou b for 0.
 
 b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
 
@@ -114,6 +116,7 @@ b) ["banana", "abacaxi", "manga"]
 c) ["banana", "abacaxi", "manga", "laranja"] ***CERTA ✅***
 >Isso acontece porque splice substitui elementos da lista.
 > O método splice é usado para modificar o conteúdo de um array, seja adicionando, removendo ou substituindo elementos. Os parâmetros são (em ordem) o índice onde a modificação começa, número de elementos a serem removidos a partir do índice especificado e elementos a serem adicionados no lugar dos elementos removidos. Nesse caso, 2 elementos: "maçã" e "uva". Ou seja, a partir do índice 1, remove 2 elementos "maçã" e "uva" e adiciona "abacaxi" e "manga" no lugar dos elementos removidos. Por isso o array de saída é ['banana', 'abacaxi', 'manga', 'laranja'].
+> Ou seja, o método splice modifica o array original, removendo e/ou adicionando elementos. No caso, ele remove 2 elementos a partir do índice 1 ("maçã" e "uva") e adiciona "abacaxi" e "manga" no lugar. 
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 ______
