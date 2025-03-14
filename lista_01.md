@@ -97,7 +97,7 @@ c) 18
 
 d) 24 ***CERTA ✅***
 
->CONTINUAR A RESPONDER AQUI!!
+>Primeiro, é criado um array chamado numeros no código. Ele contém os valores [1, 2, 3, 4, 5]. Depois, na variável resultado, é usado o método map. O método map serve para criar um novo array aplicando uma função a cada elemento do array original. Neste caso, a função x => x * 2 multiplica cada elemento do array por 2. Após o método map, o array resultante conterá os valores [2, 4, 6, 8, 10]. Na próxima etapa, o método filter é usado para criar um novo array contendo apenas os elementos que satisfazem uma condição. Ele filtra os elementos maiores que 5 usando a função x => x > 5. Após o filter, o array resultante será [6, 8, 10]. Por fim, o método reduce é utilizado para reduzir o array a um único valor. A função (a, b) => a + b soma todos os elementos do array, começando com o valor inicial do acumulador 0. Por isso, o valor resultante é 24 (6 + 8 + 10).
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -112,7 +112,8 @@ a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
 b) ["banana", "abacaxi", "manga"]
 
 c) ["banana", "abacaxi", "manga", "laranja"] ***CERTA ✅***
->CONTINUAR A RESPONDER AQUI!!
+>Isso acontece porque splice substitui elementos da lista.
+> O método splice é usado para modificar o conteúdo de um array, seja adicionando, removendo ou substituindo elementos. Os parâmetros são (em ordem) o índice onde a modificação começa, número de elementos a serem removidos a partir do índice especificado e elementos a serem adicionados no lugar dos elementos removidos. Nesse caso, 2 elementos: "maçã" e "uva". Ou seja, a partir do índice 1, remove 2 elementos "maçã" e "uva" e adiciona "abacaxi" e "manga" no lugar dos elementos removidos. Por isso o array de saída é ['banana', 'abacaxi', 'manga', 'laranja'].
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 ______
@@ -124,7 +125,8 @@ II. Em JavaScript, a herança é implementada através da palavra-chave `extends
 
 a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.
 
-b) As duas afirmações são verdadeiras, mas a segunda não justifica a primeira.
+b) As duas afirmações são verdadeiras, mas a segunda não justifica a primeira. ***CERTA ✅***
+> A afirmação I está correta, pois a herança em JavaScript permite que uma classe compartilhe métodos e propriedades com outra, evitando a repetição de código. A afirmação II também está correta, já que a palavra-chave extends é uma das formas de implementar herança em JavaScript. No entanto, a segunda afirmação não justifica a primeira, pois a herança pode ser implementada de outras maneiras, como através da cadeia de protótipos (prototype), e a afirmação II menciona apenas uma das formas de implementação, sem explicar o conceito geral de herança descrito na afirmação I. Portanto, as duas afirmações são verdadeiras, mas a segunda não justifica a primeira.
 
 c) A primeira afirmação é verdadeira, e a segunda é falsa.
 
@@ -157,13 +159,13 @@ class Funcionario extends Pessoa {
 }
 ```
 
-I) A classe Funcionario herda de Pessoa e pode acessar os atributos nome e idade diretamente.  
+I) A classe Funcionario herda de Pessoa e pode acessar os atributos nome e idade diretamente. 
 II) O método `apresentar()` da classe Funcionario sobrepõe o método `apresentar()` da classe Pessoa, mas chama o método da classe pai usando `super`.  
-III) O código não funciona corretamente, pois Funcionario não pode herdar de Pessoa como uma classe, já que o JavaScript não suporta herança de classes.
-
+III) O código não funciona corretamente, pois Funcionario não pode herdar de Pessoa como uma classe, já que o JavaScript não suporta herança de classes. 
 Quais das seguintes afirmações são verdadeiras sobre o código acima?
 
-a) I e II são verdadeiras.
+a) I e II são verdadeiras. ***CERTA ✅***
+> A afirmação I está correta. A classe Funcionario herda da classe Pessoa através da palavra-chave extends. Isso significa que Funcionario pode acessar os atributos nome e idade que são definidos no construtor da classe Pessoa. Além disso, o uso de super(nome, idade) no construtor de Funcionario garante que esses atributos sejam inicializados corretamente. A afirmação II também está correta, pois o método apresentar() na classe Funcionario sobrescreve o método apresentar() da classe Pessoa. No entanto, ele ainda chama o método da classe pai usando super.apresentar(), o que permite que a funcionalidade da classe Pessoa seja executada antes de adicionar a funcionalidade específica da classe Funcionario.
 
 b) I, II e III são verdadeiras.
 
@@ -181,6 +183,7 @@ ______
 a) A asserção é falsa e a razão é verdadeira.
 
 b) A asserção é verdadeira e a razão é falsa.
+> A asserção é verdadeira, pois o polimorfismo é um dos pilares da Programação Orientada a Objetos (POO) e refere-se à capacidade de objetos de diferentes classes responderem ao mesmo método ou mensagem de formas específicas para cada classe. Isso permite que um mesmo método possa ter comportamentos diferentes dependendo do objeto que o invoca. A razão é falsa pois a sobrecarga de métodos não é suportada em JavaScript, e não é a única forma de implementar polimorfismo. O polimorfismo em JavaScript é implementado principalmente por meio de sobrescrita de métodos (quando uma subclasse redefine um método da classe pai) e duck typing (onde o comportamento de um objeto é determinado pelos métodos e propriedades que ele possui, e não pelo seu tipo explícito).
 
 c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
 
@@ -201,6 +204,21 @@ function somaArray(numeros) {
 }
 console.log(somaArray([1, 2, 3, 4]));
 ```
+> Solução:
+
+
+``` 
+  function somaArray(numeros) {
+    let soma = 0; // Inicializa a variável 'soma' com 0 para acumular o resultado
+
+    for (let i = 0; i < numeros.length; i++) { // Corrigido 'size' para 'length'
+        soma += 2 * numeros[i]; // Acumula o dobro de cada número na variável 'soma' (ITERAÇÃO)
+    }
+
+    return soma; // Retorna o valor total da soma do dobro dos números
+}
+```
+> Inicializei uma variável soma com o valor 0 para acumular o resultado da soma, pois, sem isso, a variável seria undefined e causaria erros. Corrigi o uso incorreto de size, que não existe em arrays, substituindo-o por length, que é a propriedade correta para obter o número de elementos. Troquei o operador = por += para garantir que o valor do dobro de cada número seja acumulado na variável soma, em vez de sobrescrevê-lo a cada iteração. Além disso, declarei a variável i com let dentro do for para evitar que ela se tornasse uma variável global e causasse efeitos colaterais indesejados. Com essas correções, o código agora retorna corretamente a soma do dobro dos números do array.
 ______
 10) Crie um exemplo prático no qual você tenha duas classes:
 
@@ -208,3 +226,41 @@ ______
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+> Resposta:
+
+``` 
+// Classe Produto
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Método para calcular desconto de 10%
+    calcularDesconto() {
+        const desconto = this.preco * (10 / 100); // Calcula 10% de desconto
+        return this.preco - desconto; // Retorna o preço com desconto
+    }
+}
+
+// Classe Livro que herda de Produto
+class Livro extends Produto {
+    constructor(nome, preco) {
+        super(nome, preco); // Chama o construtor da classe Produto
+    }
+
+    // Método para calcular desconto de 20% (sobrescreve o método da classe Produto)
+    calcularDesconto() {
+        const desconto = this.preco * (20 / 100); // Calcula 20% de desconto
+        return this.preco - desconto; // Retorna o preço com desconto
+    }
+}
+```
+
+> Explicação do funcionamento:
+> Herança: A classe Livro herda da classe Produto usando a palavra-chave extends. Isso significa que Livro possui todos os atributos e métodos de Produto, a menos que sejam sobrescritos. No construtor da classe Livro, usamos super(nome, preco) para chamar o construtor da classe Produto e inicializar os atributos nome e preco.
+
+> Sobrescrita do método: A classe Livro sobrescreve o método calcularDesconto() da classe Produto. Em vez de aplicar um desconto de 10%, ela aplica um desconto de 20%. O método calcularDesconto() na classe Livro não chama o método da classe Produto (super.calcularDesconto()), pois o objetivo é substituir completamente o comportamento. 
+
+>Cálculo do desconto: O desconto é calculado como uma porcentagem do preço (this.preco * (desconto / 100)), e o valor com desconto é retornado.
