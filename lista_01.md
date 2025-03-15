@@ -185,7 +185,7 @@ ______
 
 a) A asserção é falsa e a razão é verdadeira.
 
-b) A asserção é verdadeira e a razão é falsa.
+b) A asserção é verdadeira e a razão é falsa. ***CERTA ✅***
 > A asserção é verdadeira, pois o polimorfismo é um dos pilares da Programação Orientada a Objetos (POO) e refere-se à capacidade de objetos de diferentes classes responderem ao mesmo método ou mensagem de formas específicas para cada classe. Isso permite que um mesmo método possa ter comportamentos diferentes dependendo do objeto que o invoca. A razão é falsa pois a sobrecarga de métodos não é suportada em JavaScript, e não é a única forma de implementar polimorfismo. O polimorfismo em JavaScript é implementado principalmente por meio de sobrescrita de métodos (quando uma subclasse redefine um método da classe pai) e duck typing (onde o comportamento de um objeto é determinado pelos métodos e propriedades que ele possui, e não pelo seu tipo explícito).
 
 c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
